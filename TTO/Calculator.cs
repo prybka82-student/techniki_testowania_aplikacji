@@ -18,9 +18,14 @@ namespace TTO
             return a - b;
         }
 
-        public decimal Divide(int a, int b)
+        public int Divide(int a, int b)
         {
-            return ((decimal)a) / b;
+            return a / b;
+        }
+
+        public double Divide(double a, double b)
+        {
+            return a / b;
         }
     }
 }

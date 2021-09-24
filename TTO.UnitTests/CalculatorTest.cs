@@ -21,6 +21,8 @@ public class CalculatorTest
 {
     private readonly Calculator _calculator;
 
+    private readonly static DivideByZeroException _divideByZeroException = new DivideByZeroException();
+
     public static IEnumerable<object[]> TestData => new List<object[]>
     {
         new object[] { 1, 2, 3 },
@@ -109,4 +111,27 @@ public class CalculatorTest
         Assert.Equal(validResult, sum);
     }
 
+    [Theory]
+    [InlineData(1, 0)]
+    public void DivideByZeroTest_int(int a, int b)
+    {
+        Assert.Throws<DivideByZeroException>(() =>
+        {
+            var res = _calculator.Divide(a, b);
+
+            Assert.IsType<int>(res);
+        });
+    }
+
+    [Theory]
+    [InlineData(1.0, 3, 1.0/3)]
+    [InlineData(1.0, 0, double.PositiveInfinity)]
+    [InlineData(-1.0, 0, double.NegativeInfinity)]
+    [InlineData(0, 0, double.NaN)]
+    public void DivideTest_double(double a, double b, double validResult)
+    {
+        var res = _calculator.Divide(a, b);
+
+        Assert.Equal(validResult, res);
+    }
 }
