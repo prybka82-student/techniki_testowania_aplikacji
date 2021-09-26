@@ -10,7 +10,7 @@ using System.IO;
 
 namespace TTO.UnitTests
 {    
-    public class PersonRepository
+    public class PersonRepository : IDisposable
     {
         private readonly IEnumerable<Person> _people;
 
@@ -31,5 +31,9 @@ namespace TTO.UnitTests
             return csv.GetRecords<Person>().ToList();
         }
 
+        public void Dispose()
+        {
+            //throw new NotImplementedException();
+        }
     }
 }

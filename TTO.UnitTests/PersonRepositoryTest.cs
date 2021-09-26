@@ -29,5 +29,15 @@ namespace TTO.UnitTests
             jan.LastName.Should().Be("Kowalski");
         }
 
+        [Fact]
+        public void PersonWithId3ShouldNotExits()
+        {
+            var personId = 3;
+
+            var person = _repository.Get(personId);
+
+            person.Should().BeNull();
+        }
+
     }
 }
