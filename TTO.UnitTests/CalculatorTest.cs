@@ -134,4 +134,16 @@ public class CalculatorTest
 
         Assert.Equal(validResult, res);
     }
+
+    [Theory]
+    [InlineData(1, 0)]
+    public void CalculatorDiv(int a, int b)
+    {
+        var method = () => _calculator.Divide(a, b);
+
+        method
+            .Should()
+            .Throw<DivideByZeroException>();
+
+    }
 }

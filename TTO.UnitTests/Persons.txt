@@ -1,0 +1,3 @@
+﻿Id,FirstName,LastName
+1,Jan,Kowalski
+2,Dawid,Nowak
