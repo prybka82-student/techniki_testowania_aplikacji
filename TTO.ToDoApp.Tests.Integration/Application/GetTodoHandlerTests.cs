@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentAssertions;
 using TTO.TodoApp.Application;
-using Xunit;
-using FluentAssertions;
-using System.Runtime.CompilerServices;
-using TTO.TodoApp.Infrastructure.Ef;
 using TTO.TodoApp.Domain;
+using Xunit;
 
 namespace TTO.ToDoApp.Tests.Integration.Application
 {
