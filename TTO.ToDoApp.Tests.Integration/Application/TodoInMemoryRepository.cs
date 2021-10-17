@@ -35,6 +35,11 @@ namespace TTO.ToDoApp.Tests.Integration.Application
             return Task.CompletedTask;
         }
 
+        public Task<bool> ExistsById(Guid id)
+        {
+            return Task.FromResult(_todos.Any(x => x.Id.Equals(id)));
+        }
+
         public Task<Todo> GetAsync(Guid id)
         {
             var todo = _todos
